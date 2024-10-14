@@ -2,7 +2,6 @@ import platform
 import psutil
 import cpuinfo
 
-# Получаем информацию о системе
 def get_system_info():
     try:
         # Имя компьютера
