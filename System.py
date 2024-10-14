@@ -13,20 +13,19 @@ def get_system_info():
         # Процессор
         cpu_info = cpuinfo.get_cpu_info()
         cpu_name = cpu_info['brand_raw']
-        cpu_cores = psutil.cpu_count(logical=False)  # Количество физических ядер
+        cpu_cores = psutil.cpu_count(logical=False)
 
         # ОЗУ
         ram = psutil.virtual_memory()
-        total_ram = ram.total / (1024 ** 3)  # Преобразование в GB
-        ram_slots = 'информация недоступна в psutil'  # Для получения информации о слотах RAM могут потребоваться другие библиотеки
-        # Например, wmi для Windows
+        total_ram = ram.total / (1024 ** 3)
+        ram_slots = 'информация недоступна в psutil'
 
         # Видеокарта
         gpu_info = 'информация недоступна в стандартных библиотеках'
 
         # Диски
         disk_info = psutil.disk_partitions()
-        disk_sizes = {d.device: psutil.disk_usage(d.mountpoint).total / (1024 ** 3) for d in disk_info}  # Размеры дисков в GB
+        disk_sizes = {d.device: psutil.disk_usage(d.mountpoint).total / (1024 ** 3) for d in disk_info}
 
         # Температура процессора (доступно не во всех системах)
         temperature = 'информация недоступна'
